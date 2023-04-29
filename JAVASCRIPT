@@ -1,0 +1,33 @@
+console.log("Hola mundo");
+const http = require("http");
+
+http.createServer((req, res) => {
+  res.writeHead(200, {"Content-Type": "text/plain"});
+  res.write("Hola mundo");
+  res.end();
+}).listen(8080);
+const fs = require("fs");
+
+fs.readFile("archivo.txt", "utf8", (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+const fs = require("fs");
+
+fs.writeFile("archivo.txt", "Hola mundo", (err) => {
+  if (err) throw err;
+  console.log("Archivo guardado");
+});
+const mysql = require("mysql");
+
+const con = mysql.createConnection({
+  host: "localhost",
+  user: "usuario",
+  password: "contraseña",
+  database: "basededatos"
+});
+
+con.connect((err) => {
+  if (err) throw err;
+  console.log("Conectado a la base de datos MySQL");
+});
